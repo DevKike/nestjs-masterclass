@@ -25,10 +25,8 @@ export class UserController {
 
   @Post()
   createUser(@Body() createUserDTO: CreateUserDTO) {
-    console.log(
-      '🚀 ~ UserController ~ createUser ~ createUserDTO:',
-      createUserDTO,
-    );
+    console.log(createUserDTO instanceof CreateUserDTO);
+    console.log(createUserDTO.getFullName());
     return 'You sent a post request to user endpoint';
   }
 }

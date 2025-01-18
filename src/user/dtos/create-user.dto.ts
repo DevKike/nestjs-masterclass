@@ -28,4 +28,8 @@ export class CreateUserDTO {
   @IsNotEmpty()
   @MinLength(6)
   password: string;
+
+  getFullName(): string {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }
