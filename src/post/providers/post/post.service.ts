@@ -7,4 +7,9 @@ export class PostService {
     console.log(body);
     return 'Post created';
   }
+
+  findAll(userId: string) {
+    console.log(userId);
+    return 'All posts were obtained with success!';
+  }
 }
