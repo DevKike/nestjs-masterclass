@@ -1,9 +1,7 @@
-import { Type } from 'class-transformer';
-import { IsInt, IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class GetUserParamsDTO {
   @IsNotEmpty()
-  @IsInt()
-  @Type(() => Number)
-  id: number;
+  @IsString()
+  id: string;
 }

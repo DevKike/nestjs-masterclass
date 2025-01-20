@@ -16,7 +16,7 @@ export class UserService {
     ];
   }
 
-  findOneById(id: number) {
+  findOneById(id: string) {
     return {
       id: id,
       firstName: 'John',
