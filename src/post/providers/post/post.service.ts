@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { CreatePostDTO } from 'src/post/dtos/create-post.dto';
 
 @Injectable()
 export class PostService {
-  createPost(body: CreatePostDTO) {
-    console.log(body);
-    return 'Post created';
-  }
-
   findAll(userId: string) {
-    console.log(userId);
-    return 'All posts were obtained with success!';
+    console.log('🚀 ~ PostService ~ findAll ~ userId:', userId);
+    return [
+      {
+        title: 'Test title',
+        content: 'Test content',
+      },
+      {
+        title: 'Test title 2',
+        content: 'Test content 2',
+      },
+    ];
   }
 }
