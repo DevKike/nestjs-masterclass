@@ -23,8 +23,8 @@ export class UserController {
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
   ) {
-    // return this._userService.findAll(getUserParamsDTO, limit, page);
-    return this._userService.findOneById('1234');
+    return this._userService.findAll(getUserParamsDTO, limit, page);
+    // return this._userService.findOneById('1234');
   }
 
   @Post()
