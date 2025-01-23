@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { CreatePostDTO } from 'src/post/dtos/create-post.dto';
 import { UserService } from 'src/user/providers/user/user.service';
 
 @Injectable()
@@ -19,5 +20,11 @@ export class PostService {
         content: 'Test content 2',
       },
     ];
+  }
+
+  create(post: CreatePostDTO) {
+    console.log(post);
+
+    return 'Post created';
   }
 }
