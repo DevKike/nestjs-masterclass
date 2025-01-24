@@ -23,8 +23,6 @@ export class PostService {
   }
 
   create(post: CreatePostDTO) {
-    console.log(post);
-
-    return 'Post created';
+    return 'Post created ' + JSON.stringify(post);
   }
 }

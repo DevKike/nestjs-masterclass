@@ -22,7 +22,6 @@ export class PostController {
 
   @Post('/')
   createPost(@Body() post: CreatePostDTO) {
-    console.log(post);
     return this._postService.create(post);
   }
 }
