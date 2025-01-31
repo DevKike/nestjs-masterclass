@@ -12,7 +12,7 @@ import {
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { GetUserParamsDTO } from './dtos/get-user-params.dto';
 import { PatchUserDTO } from './dtos/patch-user.dto';
-import { UserService } from './providers/user/user.service';
+import { UserService } from './providers/user/users.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @Controller('user')
@@ -54,7 +54,7 @@ export class UserController {
   createUser(@Body() createUserDTO: CreateUserDTO) {
     console.log(createUserDTO instanceof CreateUserDTO);
     console.log(createUserDTO.getFullName());
-    return 'You sent a post request to user endpoint';
+    return this._userService.createUser(createUserDTO);
   }
 
   @Patch()
