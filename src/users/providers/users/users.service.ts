@@ -19,20 +19,20 @@ export class UsersService {
      * Injecting usersRepository
      */
     @InjectRepository(User)
-    private readonly _userRepository: Repository<User>,
+    private readonly _usersRepository: Repository<User>,
   ) {}
 
   async createUser(createUserDTO: CreateUserDTO) {
     //Check is user already exists with same email
-    const existingUser = await this._userRepository.findOne({
+    const existingUser = await this._usersRepository.findOne({
       where: { email: createUserDTO.email },
     });
 
     //Handle exception
 
     //Create a new user
-    let newUser = this._userRepository.create(createUserDTO);
-    newUser = await this._userRepository.save(newUser);
+    let newUser = this._usersRepository.create(createUserDTO);
+    newUser = await this._usersRepository.save(newUser);
 
     return newUser;
   }

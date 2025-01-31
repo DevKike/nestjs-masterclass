@@ -1,10 +1,27 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { CreatePostDTO } from 'src/posts/dtos/create-post.dto';
+import { Post } from 'src/posts/post.entity';
 import { UsersService } from 'src/users/providers/users/users.service';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class PostsService {
-  constructor(private readonly _usersService: UsersService) {}
+  constructor(
+    private readonly _usersService: UsersService,
+    /**
+     * Inject the Post repository
+     */
+    @InjectRepository(Post)
+    private readonly _postsRepository: Repository<Post>,
+  ) {}
+
+  async createPost(createPostDTO: CreatePostDTO) {
+    let newPost = this._postsRepository.create(createPostDTO);
+    newPost = await this._postsRepository.save(newPost);
+
+    return newPost;
+  }
 
   findAll(userId: string) {
     const user = this._usersService.findOneById(userId);

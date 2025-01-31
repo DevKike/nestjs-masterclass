@@ -31,7 +31,7 @@ export class PostsController {
   })
   @Post('/')
   createPost(@Body() post: CreatePostDTO) {
-    return this._postsService.create(post);
+    return this._postsService.createPost(post);
   }
 
   @ApiOperation({
