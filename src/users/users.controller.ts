@@ -12,13 +12,13 @@ import {
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { GetUserParamsDTO } from './dtos/get-user-params.dto';
 import { PatchUserDTO } from './dtos/patch-user.dto';
-import { UserService } from './providers/user/users.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { UsersService } from './providers/users/users.service';
 
 @Controller('user')
 @ApiTags('User')
-export class UserController {
-  constructor(private readonly _userService: UserService) {}
+export class UsersController {
+  constructor(private readonly _userService: UsersService) {}
   @Get('/:id?')
   @ApiOperation({
     summary: 'Fetch a list of registered users on the app',

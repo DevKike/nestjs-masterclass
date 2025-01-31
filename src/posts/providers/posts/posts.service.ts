@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { CreatePostDTO } from 'src/post/dtos/create-post.dto';
-import { UserService } from 'src/user/providers/user/users.service';
+import { CreatePostDTO } from 'src/posts/dtos/create-post.dto';
+import { UsersService } from 'src/users/providers/users/users.service';
 
 @Injectable()
-export class PostService {
-  constructor(private readonly _userService: UserService) {}
+export class PostsService {
+  constructor(private readonly _usersService: UsersService) {}
 
   findAll(userId: string) {
-    const user = this._userService.findOneById(userId);
+    const user = this._usersService.findOneById(userId);
     return [
       {
         user: user,

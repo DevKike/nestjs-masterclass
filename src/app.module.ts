@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
-import { PostModule } from './post/post.module';
+import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './user/user.entity';
+import { PostsModule } from './posts/posts.module';
+import { User } from './users/user.entity';
 
 const IMPORTS = [
-  UserModule,
-  PostModule,
+  UsersModule,
+  PostsModule,
   AuthModule,
   TypeOrmModule.forRootAsync({
     imports: [],

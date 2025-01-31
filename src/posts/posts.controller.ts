@@ -7,19 +7,19 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { PostService } from './providers/post/post.service';
+import { PostsService } from './providers/posts/posts.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDTO } from './dtos/create-post.dto';
 import { PatchPostDTO } from './dtos/patch-post.dto';
 
 @Controller('post')
 @ApiTags('Post')
-export class PostController {
-  constructor(private readonly _postService: PostService) {}
+export class PostsController {
+  constructor(private readonly _postsService: PostsService) {}
 
   @Get('/:userId')
   getPost(@Param('userId', ParseIntPipe) userId: string) {
-    return this._postService.findAll(userId);
+    return this._postsService.findAll(userId);
   }
 
   @ApiOperation({
@@ -31,7 +31,7 @@ export class PostController {
   })
   @Post('/')
   createPost(@Body() post: CreatePostDTO) {
-    return this._postService.create(post);
+    return this._postsService.create(post);
   }
 
   @ApiOperation({

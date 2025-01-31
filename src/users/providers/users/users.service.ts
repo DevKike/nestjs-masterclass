@@ -1,9 +1,9 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AuthService } from 'src/auth/providers/auth/auth.service';
-import { CreateUserDTO } from 'src/user/dtos/create-user.dto';
-import { GetUserParamsDTO } from 'src/user/dtos/get-user-params.dto';
-import { User } from 'src/user/user.entity';
+import { CreateUserDTO } from 'src/users/dtos/create-user.dto';
+import { GetUserParamsDTO } from 'src/users/dtos/get-user-params.dto';
+import { User } from 'src/users/user.entity';
 import { Repository } from 'typeorm';
 
 /**
@@ -11,7 +11,7 @@ import { Repository } from 'typeorm';
  * @param {AuthService} _authService - The instance of the AuthService
  */
 @Injectable()
-export class UserService {
+export class UsersService {
   constructor(
     @Inject(forwardRef(() => AuthService))
     private readonly _authService: AuthService,
