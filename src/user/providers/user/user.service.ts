@@ -16,7 +16,7 @@ export class UserService {
   /**
    * The method to get all users to the database
    */
-  findAll(getUserParamsDTO: GetUserParamsDTO, limit: number, page: number) {
+  findAll(GetUserParamsDTO: GetUserParamsDTO, limit: number, page: number) {
     const isAuth = this._authService.isAuth();
     console.log(isAuth);
     return [
