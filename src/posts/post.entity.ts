@@ -1,6 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { PostType } from './enums/post-type.enum';
 import { PostStatus } from './enums/post-status.enum';
+import { MetaOption } from 'src/meta-options/meta-option.entity';
 
 @Entity()
 export class Post {
@@ -21,4 +28,19 @@ export class Post {
 
   @Column({ type: 'text', nullable: true })
   content?: string;
+
+  @Column({ type: 'json', nullable: true })
+  schema?: string;
+
+  @Column({ type: 'varchar', nullable: true })
+  featuredImageUrl?: string;
+
+  @Column({ type: 'timestamp', nullable: true })
+  publishOn?: Date;
+
+  @OneToOne(() => MetaOption)
+  @JoinColumn()
+  metaOptions?: MetaOption[];
+
+  tags?: string[];
 }
