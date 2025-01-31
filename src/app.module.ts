@@ -19,7 +19,8 @@ const IMPORTS = [
     inject: [],
     useFactory: () => ({
       type: 'postgres',
-      entities: [User, Post],
+      // entities: [User, Post],
+      autoLoadEntities: true,
       synchronize: true,
       port: 5432,
       username: 'postgres',
