@@ -30,8 +30,8 @@ export class PostsController {
     description: 'You get a 201 response if the post is created successfully',
   })
   @Post('/')
-  createPost(@Body() post: CreatePostDTO) {
-    return this._postsService.createPost(post);
+  async createPost(@Body() post: CreatePostDTO) {
+    return await this._postsService.create(post);
   }
 
   @ApiOperation({

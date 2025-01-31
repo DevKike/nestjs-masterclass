@@ -40,7 +40,7 @@ export class Post {
 
   @OneToOne(() => MetaOption)
   @JoinColumn()
-  metaOptions?: MetaOption[];
+  metaOption?: MetaOption;
 
   tags?: string[];
 }
