@@ -7,10 +7,10 @@ export class Post {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: false })
   title: string;
 
-  @Column({ type: 'enum', enum: PostType })
+  @Column({ type: 'enum', enum: PostType, default: PostType.POST })
   postType: PostType;
 
   @Column({ type: 'varchar' })

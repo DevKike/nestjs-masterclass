@@ -7,6 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostsModule } from './posts/posts.module';
 import { User } from './users/user.entity';
 import { Post } from './posts/post.entity';
+import { TagsModule } from './tags/tags.module';
+import { MetaOptionsModule } from './meta-options/meta-options.module';
 
 const IMPORTS = [
   UsersModule,
@@ -30,7 +32,7 @@ const IMPORTS = [
 const CONTROLLERS = [AppController];
 const PROVIDERS = [AppService];
 @Module({
-  imports: [...IMPORTS],
+  imports: [...IMPORTS, TagsModule, MetaOptionsModule],
   controllers: [...CONTROLLERS],
   providers: [...PROVIDERS],
 })
